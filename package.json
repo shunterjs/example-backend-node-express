@@ -1,0 +1,22 @@
+{
+  "name": "shunter-example-backend-node-express",
+  "version": "1.0.0",
+  "description": "An example backend shunter application using the Express web framework for node.js",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shunterjs/example-backend-node-express.git"
+  },
+  "author": "Shunterjs",
+  "contributors": [
+    "Adam Tavener (http://www.tavvy.co.uk/)"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shunterjs/example-backend-node-express/issues"
+  },
+  "homepage": "https://github.com/shunterjs/example-backend-node-express#readme",
+  "dependencies": {
+    "express": "~4.13"
+  }
+}
