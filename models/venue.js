@@ -1,4 +1,6 @@
 
+'use strict';
+
 var db = require('../data/venues-db');
 
 /*
@@ -10,12 +12,14 @@ exports.get = function(query, callback) {
 
 	// mock request to fetch venue data
 	db.find(function(el) {
-		if (el.slug == query) {
+		if (el.slug === query) {
 			venue = el;
 		}
 	});
 
-	if (!venue) return callback({error: 'Venue not found'});
+	if (!venue) {
+		return callback(new Error('Venue not found'));
+	}
 
 	var response = {
 		layout: {

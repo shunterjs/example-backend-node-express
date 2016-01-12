@@ -11,12 +11,19 @@
   "contributors": [
     "Adam Tavener (http://www.tavvy.co.uk/)"
   ],
-  "license": "ISC",
+  "license": "LGPL-3.0",
   "bugs": {
     "url": "https://github.com/shunterjs/example-backend-node-express/issues"
   },
   "homepage": "https://github.com/shunterjs/example-backend-node-express#readme",
   "dependencies": {
     "express": "~4.13"
+  },
+  "devDependencies": {
+    "jscs": "^2",
+    "jshint": "^2"
+  },
+  "scripts": {
+    "lint": "make lint"
   }
 }

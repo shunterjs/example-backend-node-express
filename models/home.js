@@ -1,17 +1,16 @@
 
-var db = require('../data/venues-db');
+'use strict';
+
+var db = JSON.parse(JSON.stringify(require('../data/venues-db')));
 
 /*
  * GET
  * return the homepage data
  */
 exports.get = function(callback) {
-	var venues = null;
-
-	// mock request to fetch venues data
-	venues = JSON.parse(JSON.stringify(db));
-
-	if (!venues) return callback({error: 'Venues not found'});
+	if (!db) {
+		return callback(new Error('Venues not found'));
+	}
 
 	var response = {
 		layout: {
@@ -19,7 +18,7 @@ exports.get = function(callback) {
 		},
 		data: {
 			title: 'Lunch Places',
-			venues: venues
+			venues: db
 		}
 	};
 
