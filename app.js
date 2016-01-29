@@ -3,8 +3,6 @@
 
 var port = process.env.PORT || 5000;
 var express = require('express');
-var Home = require('./models/home');
-var Venue = require('./models/venue');
 
 var app = express();
 
@@ -23,44 +21,9 @@ app.use(function(req, res, next) {
 	next();
 });
 
-/*
- * HOME
- * home page
- */
-app.get('/', function(req, res, next) {
-	Home.get(function(err, result) {
-		if (err) {
-			return next(err);
-		}
-		res.status(200).send(result);
-	});
-});
-
-/*
- * RANDOM
- * get random venue slug from db and redirect
- */
-app.get('/random', function(req, res, next) {
-	Venue.getRandomSlug(function(err, result) {
-		if (err) {
-			return next(err);
-		}
-		res.status(302).redirect(result);
-	});
-});
-
-/*
- * VENUE
- * venue by slug
- */
-app.get('/:venue', function(req, res, next) {
-	Venue.get(req.params.venue, function(err, result) {
-		if (err) {
-			return next(err);
-		}
-		res.status(200).send(result);
-	});
-});
+app.get('/', require('./controller/home'));
+app.get('/random', require('./controller/random'));
+app.get('/:venue', require('./controller/venue'));
 
 /*
  * HANDLE ERRORS
