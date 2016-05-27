@@ -7,7 +7,15 @@ var VenueModel = require('../model/venue');
  * get random venue slug from db and redirect
  */
 module.exports = function(req, res, next) {
-	var slug = VenueModel.random();
-	res.header('Location', '/' + slug);
-	res.sendStatus(302);
+	var venue = VenueModel.random();
+	var response = {
+		layout: {
+			template: 'venue'
+		},
+		data: {
+			title: venue.name + ' - Lunch Places',
+			venue: venue
+		}
+	};
+	res.header('Location', '/' + venue.slug).status(302).send(response);
 };

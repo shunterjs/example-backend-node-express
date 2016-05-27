@@ -28,5 +28,6 @@ exports.all = function() {
  * return random venue slug from db
  */
 exports.random = function() {
-	return db[Math.floor(Math.random() * db.length)].slug;
+	var name = db[Math.floor(Math.random() * db.length)].slug;
+	return this.find(name);
 };

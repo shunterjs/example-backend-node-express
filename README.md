@@ -6,7 +6,7 @@ A Node.js-based back end for the [Shunter example application](https://github.co
 
 ## Requirements
 
-[Node.js](https://nodejs.org/) 0.12+ is required to run this application.
+[Node.js](https://nodejs.org/) 4.4.3+ is required to run this application.
 
 
 ## Installation
