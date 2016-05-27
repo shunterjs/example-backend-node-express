@@ -25,8 +25,9 @@ exports.all = function() {
 };
 /*
  * RANDOM
- * return random venue slug from db
+ * return random venue from db
  */
 exports.random = function() {
-	return db[Math.floor(Math.random() * db.length)].slug;
+	var name = db[Math.floor(Math.random() * db.length)].slug;
+	return this.find(name);
 };
