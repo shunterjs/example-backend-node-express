@@ -4,7 +4,7 @@
 var VenueModel = require('../model/venue');
 /*
  * RANDOM
- * get random venue slug from db and redirect
+ * get random venue from db and redirect
  */
 module.exports = function(req, res, next) {
 	var venue = VenueModel.random();
